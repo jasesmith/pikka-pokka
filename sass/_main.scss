@@ -1,0 +1,210 @@
+.view {
+  flex: 1;
+  position: relative;
+  font-size: 90vmin;
+}
+.case > * {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.element {
+  font-size: .5em;
+  width: 1em;
+  height: 1em;
+  color: $light;
+  background: $dark;
+  border-radius: 1em;
+  box-shadow: 0 0 0 .02em $dark, 0 0 .2em 0 $dark;
+  transition: background .3s ease-out;
+  user-select: none;
+  // opacity: .1;
+  > * {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .icon {
+    font-size: .3em;
+    top: 37%;
+  }
+  input {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    top: 67%;
+    width: 80%;
+    padding: .1em 0;
+    font-size: .15em;
+    text-align: center;
+    outline: none;
+    color: inherit;
+    transition: none;
+    &:focus {
+      border-color: currentColor;
+    }
+    &::placeholder  {
+      color: #fff;
+      opacity: .5;
+    }
+  }
+}
+.palette {
+  width: 1em;
+  height: 1em;
+  border-radius: 1em;
+  transform-style: preserve-3d;
+  transform: scale(.8) translateZ(0);
+  background: $dark;
+  overflow: hidden;
+  > div {
+    position: absolute;
+    top: 0%;
+    right: 50%;
+    bottom: 0%;
+    left: 50%;
+    perspective: 1px;
+    > span {
+      position: absolute;
+      top: 0%;
+      right: 50%;
+      bottom: 0%;
+      left: 50%;
+      // transform: translate(-50%, -50%) rotateX(16.3636364deg);
+      background: currentColor;
+      cursor: pointer;
+      // width: 0.163636364em;
+    }
+  }
+}
+.icons {
+  font-size: 1em;
+  width: 1em;
+  height: 1em;
+  border-radius: 1em;
+  pointer-events: none;
+  > div {
+    position: absolute;
+    top: .5em;
+    right: 50%;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: center bottom;
+    font-size: 5%;
+    &.current {
+      // font-size: 5%;
+      > span {
+        color: $active;
+      }
+    }
+    > span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0%;
+      left: 50%;
+      width: 2em;
+      height: 2em;
+      border-radius: 1em;
+      overflow: hidden;
+      transition: .3s ease-in-out;
+      transform: translate(-50%, -50%);
+      pointer-events: auto;
+      cursor: pointer;
+    }
+  }
+}
+.steps {
+  flex: none;
+  padding: 1em 0;
+  justify-content: center;
+  font-size: 4vmin;
+  .icon {
+    margin: 0 .5em;
+    &:not(.current) {
+      opacity: .2;
+    }
+  }
+}
+
+.bezel {
+  font-size: 79%;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  color: inherit; /* inherit from parent element or set explicitly: $light */
+  border-radius: 100%;
+  pointer-events: none;
+  box-shadow: 0 0 0 .015em $dark;
+}
+.crown {
+  position: absolute;
+  transform-origin: center;
+  font-size: 5%;
+  border-radius: 100%;
+  span {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border-radius: 1em;
+    cursor: pointer;
+  }
+  &.hour {
+    z-index: 2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    span {
+      width: 1em;
+      height: 1em;
+      top: 1.5em;
+      background: $light;
+      box-shadow: 0 0 0 .15em $dark;
+    }
+  }
+  &.minute {
+    z-index: 1;
+    top: -2em;
+    right: -2em;
+    bottom: -2em;
+    left: -2em;
+    span {
+      width: 2em;
+      height: 2em;
+      top: 0;
+      box-shadow: 0 0 0 .15em $dark, 0 0 .5em .5em $light;
+      background: transparent; //$light;
+    }
+  }
+}
+
+// boring
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  // box-shadow: 0 0 0 1px red;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.flex-1 {
+  flex: 1;
+}

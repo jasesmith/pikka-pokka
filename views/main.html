@@ -1,0 +1,26 @@
+<div class="view">
+  <div class="case">
+    <div class="palette">
+      <div ng-repeat="color in colors" ng-class="{'current': model.color == color}" tap="setColor($index)" ng-style="rotateColor($index)">
+        <span ng-style="wedgie(color, colors.length)"></span>
+      </div>
+    </div>
+    <pokka-dial model="model" rings="rings" style="color: {{model.color}}"></pokka-dial>
+    <div class="icons">
+      <div ng-repeat="icon in icons" ng-class="{'current': model.icon == icon}" tap="setIcon($index)" ng-style="rotateIcon($index)">
+        <span><i class="fa fa-{{icon}} fa-fw" ng-style="rotateIcon($index, '-')"></i></span>
+      </div>
+    </div>
+    <div class="element" ng-style="{'background': model.color}">
+      <div class="icon fa fa-{{model.icon}}"></div>
+      <input type="text" ng-model="model.name" placeholder="name" />
+    </div>
+  </div>
+</div>
+<!-- <div class="steps row">
+  <div class="icon fa fa-circle current"></div>
+  <div class="icon fa fa-circle"></div>
+  <div class="icon fa fa-circle"></div>
+  <div class="icon fa fa-circle"></div>
+</div> -->
+<!-- <div>next</div> -->
